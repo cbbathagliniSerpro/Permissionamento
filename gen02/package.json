@@ -1,0 +1,49 @@
+{
+  "name": "rbb-permissionamento",
+  "version": "2.0.0",
+  "description": "Smart contracts de permissionamento da RBB",
+  "scripts": {
+    "test": "cucumber-js",
+    "compile": "npx hardhat compile",
+    "hardhat-deploy-admin-mock": "npx hardhat run deploy/deploy-admin-mock.js --network local",
+    "hardhat-deploy-gen02": "npx hardhat run deploy/deploy-gen02.js --network local",
+    "local-deploy-admin-mock": "npx hardhat run deploy/deploy-admin-mock.js --network local_besu",
+    "local-deploy-gen02": "npx hardhat run deploy/deploy-gen02.js --network local_besu",
+    "local-test-admins-gen02": "npx hardhat run deploy/test-admins-gen02.js --network local_besu",
+    "local-add-accounts-gen02": "npx hardhat run deploy/add-accounts-gen02.js --network local_besu",
+    "local-test-accounts-gen02": "npx hardhat run deploy/test-accounts-gen02.js --network local_besu",
+    "local-add-nodes-gen02": "npx hardhat run deploy/add-nodes-gen02.js --network local_besu",
+    "local-test-nodes-gen02": "npx hardhat run deploy/test-nodes-gen02.js --network local_besu",
+    "local-create-proposal-add-global-admins": "npx hardhat run deploy/create-proposal-add-global-admins.js --network local_besu",
+    "local-create-proposal-add-new-orgs": "npx hardhat run deploy/create-proposal-add-new-orgs.js --network local_besu",
+    "local-create-proposal-mig-gen02": "npx hardhat run deploy/create-proposal-mig-gen02.js --network local_besu",
+    "local-create-proposal-remove-admins": "npx hardhat run deploy/create-proposal-remove-admins.js --network local_besu",
+    "local-cast-vote": "npx hardhat run deploy/cast-vote.js --network local_besu",
+    "local-execute-proposal": "npx hardhat run deploy/execute-proposal.js --network local_besu",
+    "local-verify-governance": "npx hardhat run deploy/verify-governance.js --network local_besu",
+    "local-permissioning-diagnostics": "npx hardhat run deploy/permissioning-diagnostics.js --network local_besu",
+    "local-migrate-to-gen03-mock": "npx hardhat run deploy/migrate-to-gen03-mock.js --network local_besu",
+    "local-migrate-to-governance-mock": "npx hardhat run deploy/migrate-to-governance-mock.js --network local_besu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RBBNet/Permissionamento.git"
+  },
+  "keywords": [
+    "permissioning",
+    "RBB"
+  ],
+  "author": "RBB",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "dotenv": "^7.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.19",
+    "@openzeppelin/contracts": "^5.2.0",
+    "@cucumber/cucumber": "^9.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/RBBNet/Permissionamento/issues"
+  },
+  "homepage": "https://github.com/RBBNet/Permissionamento#readme"
+}

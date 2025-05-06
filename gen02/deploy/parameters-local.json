@@ -1,0 +1,173 @@
+{
+    "adminAddress": "0x72bb9c7ffbE2Ed234e53bc64862DdA6d9fFF333b",
+    "organizationAddress": "0xfEdf5D0eC5FCF22FfC28Ed352217ed879dB2D0af",
+    "accountRulesV2Address": "0xa6dDA3665B3980D4e1efFf2F4438033C6c779b22",
+    "nodeRulesV2Address": "0xCd50B9972abB2F10C65fbE3439EA3F83791F13DC",
+    "governanceAddress": "0xD5905E141dE60F2650B4e1b39B81E5957bF1aA78",
+    "organizations": [
+        {
+            "id": 0,
+            "cnpj": "33657248000189",
+            "name": "BNDES",
+            "orgType": "Patron",
+            "canVote": true
+        },
+        {
+            "id": 0,
+            "cnpj": "00414607000118",
+            "name": "TCU",
+            "orgType": "Patron",
+            "canVote": true
+        },
+        {
+            "id": 0,
+            "cnpj": "42422253000101",
+            "name": "DATAPREV",
+            "orgType": "Associate",
+            "canVote": true
+        },
+        {
+            "id": 0,
+            "cnpj": "33555921000170",
+            "name": "PUC-Rio",
+            "orgType": "Partner",
+            "canVote": false
+        },
+        {
+            "id": 0,
+            "cnpj": "02641663000110",
+            "name": "CPQD",
+            "orgType": "Associate",
+            "canVote": true
+        },
+        {
+            "id": 0,
+            "cnpj": "03508097000136",
+            "name": "RNP",
+            "orgType": "Associate",
+            "canVote": true
+        },
+        {
+            "id": 0,
+            "cnpj": "16636540000104",
+            "name": "PRODEMGE",
+            "orgType": "Associate",
+            "canVote": true
+        },
+        {
+            "id": 0,
+            "cnpj": "33683111000107",
+            "name": "SERPRO",
+            "orgType": "Associate",
+            "canVote": true
+        }
+    ],
+    "globalAdmins": [
+        "0x71bE63f3384f5fb98995898A86B02Fb2426c5788",
+        "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+        "0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec",
+        "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+        "0xcd3B766CCDd6AE721141F452C550Ca635964ce71",
+        "0x2546BcD3c84621e976D8185a91A922aE77ECEc30",
+        "0xbDA5747bFD65F08deb54cb465eB87D40e51B197E",
+        "0xdD2FD4581271e230360230F9337D5c0430Bf44C0"
+    ],
+    "accounts": [
+        {
+            "account": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+            "role": "LOCAL_ADMIN_ROLE",
+            "dataHash": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        {
+            "account": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+            "role": "DEPLOYER_ROLE",
+            "dataHash": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        },
+        {
+            "account": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+            "role": "USER_ROLE",
+            "dataHash": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        }
+    ],
+    "nodes": [
+        {
+            "enodeHigh": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "enodeLow": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "nodeType": "Boot",
+            "name": "boot01"
+        },
+        {
+            "enodeHigh": "0x0000000000000000000000000000000000000000000000000000000000000003",
+            "enodeLow": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "nodeType": "Validator",
+            "name": "validator01"
+        },
+        {
+            "enodeHigh": "0x0000000000000000000000000000000000000000000000000000000000000005",
+            "enodeLow": "0x0000000000000000000000000000000000000000000000000000000000000006",
+            "nodeType": "Writer",
+            "name": "writer01"
+        },
+        {
+            "enodeHigh": "0x0000000000000000000000000000000000000000000000000000000000000007",
+            "enodeLow": "0x0000000000000000000000000000000000000000000000000000000000000008",
+            "nodeType": "ObserverBoot",
+            "name": "observer-boot01"
+        }
+    ],
+    "newGlobalAdmins": [
+        {
+            "orgId": 1,
+            "account": "0xBcd4042DE499D14e55001CcbB24a551F3b954096"
+        },
+        {
+            "orgId": 2,
+            "account": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720"
+        },
+        {
+            "orgId": 3,
+            "account": "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f"
+        }
+    ],
+    "newOrganizations": [
+        {
+            "cnpj": "04082993000149",
+            "name": "IBICT",
+            "orgType": "Associate"
+        },
+        {
+            "cnpj": "39467292000102",
+            "name": "SGD",
+            "orgType": "Associate"
+        },
+        {
+            "cnpj": "03269619000194",
+            "name": "CGE-PA",
+            "orgType": "Partner"
+        },
+        {
+            "cnpj": "33350620000100",
+            "name": "FENASBAC",
+            "orgType": "Partner"
+        },
+        {
+            "cnpj": "01830793000139",
+            "name": "Araguaína",
+            "orgType": "Partner"
+        },
+        {
+            "cnpj": "21853640000114",
+            "name": "STC-MA",
+            "orgType": "Partner"
+        },
+        {
+            "cnpj": "50290931000140",
+            "name": "TCE-SP",
+            "orgType": "Partner"
+        }
+    ],
+    "proposal": {
+        "id": 2,
+        "vote": true
+    }
+}

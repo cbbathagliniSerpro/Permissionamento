@@ -1,0 +1,9 @@
+{
+    "remappings": [
+        "@openzeppelin/contracts/access/IAccessControl.sol=./node_modules/@openzeppelin/contracts/access/IAccessControl.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol=./node_modules/@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/utils/structs/EnumerableSet.sol=./node_modules/@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
+        "@openzeppelin/contracts/utils/Address.sol=./node_modules/@openzeppelin/contracts/utils/Address.sol",
+        "@openzeppelin/contracts/utils/structs/EnumerableSet.sol=./node_modules/@openzeppelin/contracts/utils/structs/EnumerableSet.sol"
+    ]
+}
