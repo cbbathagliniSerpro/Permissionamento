@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity 0.8.28;
 
+import {console} from "forge-std/console.sol";
 import "./Organization.sol";
 import "./Governable.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
@@ -15,6 +16,7 @@ contract OrganizationImpl is Organization, Governable {
 
     modifier existentOrganization(uint orgId) {
         if(organizations[orgId].id == 0) {
+            console.log("NOTexistentOrganization");
             revert OrganizationNotFound(orgId);
         }
         _;
@@ -29,6 +31,7 @@ contract OrganizationImpl is Organization, Governable {
 
     modifier validCnpj(string memory cnpj) {
         if(bytes(cnpj).length == 0) {
+            console.log("INvalidCnpj");
             revert InvalidArgument("Organization CNPJ cannot be empty.");
         }
         _;
@@ -36,6 +39,7 @@ contract OrganizationImpl is Organization, Governable {
 
     modifier validName(string memory name) {
         if(bytes(name).length == 0) {
+            console.log("INvalidName");
             revert InvalidArgument("Organization name cannot be empty.");
         }
         _;
@@ -43,6 +47,7 @@ contract OrganizationImpl is Organization, Governable {
 
     modifier validPermissionToVote(OrganizationType orgType, bool canVote) {
         if(canVote && orgType == OrganizationType.Partner) {
+            console.log("INvalidPermissionToVote");
             revert InvalidArgument("Partner organizations cannot vote");
         }
         _;
@@ -71,6 +76,7 @@ contract OrganizationImpl is Organization, Governable {
 
     function updateOrganization(uint orgId, string calldata cnpj, string calldata name, OrganizationType orgType, bool canVote) public
         onlyGovernance existentOrganization(orgId) validCnpj(cnpj) validName(name) validPermissionToVote(orgType, canVote) {
+            console.log(">>id:", orgId);
         OrganizationData storage org = organizations[orgId];
         org.cnpj = cnpj;
         org.name = name;

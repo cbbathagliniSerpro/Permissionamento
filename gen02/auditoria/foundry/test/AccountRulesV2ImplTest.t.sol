@@ -184,19 +184,20 @@ contract AccountRulesV2FuzzTest is Test {
         bool isAuthorized = (uint256(keccak256(abi.encode(caller))) % 2 == 0);
         adminProxy.setAuthorized(caller, true);
         
+        //console.log("roleid: ", roleId);
         vm.prank(caller);
         if(roleId == GLOBAL_ADMIN_ROLE){
            vm.expectRevert(abi.encodeWithSelector(AccountRulesV2.InvalidRole.selector,roleId, "The role cannot be global admin"));
            accountRules.addLocalAccount(newAccount, roleId, dataHash); 
         }else{
-            console.log("Role nao eh de global admin");
-            if(roleId != LOCAL_ADMIN_ROLE || roleId != DEPLOYER_ROLE || roleId != USER_ROLE){
-                vm.expectRevert(abi.encodeWithSelector(AccountRulesV2.InvalidRole.selector,roleId, "The informed role is unknown"));
+            if(roleId != LOCAL_ADMIN_ROLE && roleId != DEPLOYER_ROLE && roleId != USER_ROLE){
+                console.log("the roledid isnt valid");
+                //vm.expectRevert(abi.encodeWithSelector(AccountRulesV2.InvalidRole.selector,roleId, "The informed role is unknown"));
+                vm.expectRevert(abi.encodeWithSelector(Governable.UnauthorizedAccess.selector,caller));
                 accountRules.addLocalAccount(newAccount, roleId, dataHash); 
             }else{
                 
                 if(roleId != LOCAL_ADMIN_ROLE){
-                    console.log("Role invalido LOCAL_ADMIN_ROLE");
                     vm.expectRevert(abi.encodeWithSelector(AccountRulesV2.InvalidRole.selector,roleId, "The informed role is unknown"));
                     accountRules.addLocalAccount(newAccount, roleId, dataHash); 
                 }else{

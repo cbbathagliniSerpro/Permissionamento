@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 pragma solidity 0.8.28;
 
+import {console} from "forge-std/console.sol";
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 import "./AccountRulesV2.sol";
 import "./Governable.sol";
@@ -23,6 +24,7 @@ contract AccountRulesV2Impl is AccountRulesV2, Governable, AccessControl {
     mapping (address => address[]) public restrictedSmartContractsAllowedSenders;
 
     modifier onlyActiveAdmin() {
+        console.log("onlyActiveAdmin");
         if(!hasRole(GLOBAL_ADMIN_ROLE, msg.sender) && !hasRole(LOCAL_ADMIN_ROLE, msg.sender)) {
             revert UnauthorizedAccess(msg.sender);
         }
@@ -33,6 +35,7 @@ contract AccountRulesV2Impl is AccountRulesV2, Governable, AccessControl {
     }
 
     modifier validAccount(address account) {
+        console.log("validAccount");
         if(account == address(0)) {
             revert InvalidAccount(account, "Address cannot be 0x0");
         }
@@ -54,11 +57,15 @@ contract AccountRulesV2Impl is AccountRulesV2, Governable, AccessControl {
     }
 
     modifier validRole(bytes32 roleId) {
+
+        console.logBytes32(roleId);
+        
         if(!validRoles[roleId]) {
             revert InvalidRole(roleId, "The informed role is unknown");
         }
         _;
     }
+
 
     modifier notGlobalAdminRole(bytes32 roleId) {
         if(roleId == GLOBAL_ADMIN_ROLE) {
@@ -124,7 +131,10 @@ contract AccountRulesV2Impl is AccountRulesV2, Governable, AccessControl {
     }
 
     function addLocalAccount(address account, bytes32 roleId, bytes32 dataHash) public
-        onlyActiveAdmin validAccount(account) inexistentAccount(account) validRole(roleId) notGlobalAdminRole(roleId) {
+        onlyActiveAdmin validAccount(account) 
+        inexistentAccount(account) 
+        validRole(roleId) 
+        notGlobalAdminRole(roleId) {
         _addAccount(account, accounts[msg.sender].orgId, roleId, dataHash);
     }
 

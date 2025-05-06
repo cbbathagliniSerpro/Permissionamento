@@ -15,6 +15,7 @@ import {OrganizationImpl} from "../src/OrganizationImpl.sol";
 
 import {Governance} from "../src/Governance.sol";
 import {Governable} from "../src/Governable.sol";
+import {Pagination} from "../src/Pagination.sol";
 
 contract NodeRulesV2ImplFuzzTest is Test {
 
@@ -182,15 +183,14 @@ contract NodeRulesV2ImplFuzzTest is Test {
         console.log("pagesize: " , pageSize);
 
         if(page< 1 && pageSize >= 1){
-            vm.expectRevert(abi.encodeWithSelector(NodeRulesV2.InvalidArgument.selector, "Page must be greater or equal to 1 "));
+            vm.expectRevert(abi.encodeWithSelector(Pagination.InvalidPaginationParameter.selector));
             nodeRules.getNodes(page, pageSize); 
         }else if(page>= 1 && pageSize < 1){
-            vm.expectRevert(abi.encodeWithSelector(NodeRulesV2.InvalidArgument.selector, "Page size must be greater or equal to 1 "));
+            vm.expectRevert(abi.encodeWithSelector(Pagination.InvalidPaginationParameter.selector));
             nodeRules.getNodes(page, pageSize); 
         }else{
-
             try nodeRules.getNodes(page, pageSize) {
-                // Se page < 1 ou pageSize < 1 => revert InvalidArgument
+                // Se page < 1 ou pageSize < 1 => revert InvalidPaginationParameter
             } catch (bytes memory reason) {
                 console.log("getNodes revert reason:", string(reason));
             }
@@ -198,10 +198,10 @@ contract NodeRulesV2ImplFuzzTest is Test {
         }
 
         if(page< 1 && pageSize >= 1){
-            vm.expectRevert(abi.encodeWithSelector(NodeRulesV2.InvalidArgument.selector, "Page must be greater or equal to 1 "));
+            vm.expectRevert(abi.encodeWithSelector(Pagination.InvalidPaginationParameter.selector));
             nodeRules.getNodesByOrg(1, page, pageSize); 
         }else if(page>= 1 && pageSize < 1){
-            vm.expectRevert(abi.encodeWithSelector(NodeRulesV2.InvalidArgument.selector, "Page size must be greater or equal to 1 "));
+            vm.expectRevert(abi.encodeWithSelector(Pagination.InvalidPaginationParameter.selector));
             nodeRules.getNodesByOrg(1, page, pageSize); 
         }else{
 
